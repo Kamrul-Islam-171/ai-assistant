@@ -28,7 +28,7 @@ structured_model = model.with_structured_output(ChatResponse)
 parser = StrOutputParser()
 
 category_chain = category_prompt | model | parser
-programming_chaing = programming_prompt | model
+programming_chain = programming_prompt | model
 math_chain = math_prompt | model
 general_chain = general_prompt | model
 summary_chain = summary_prompt | model
@@ -38,7 +38,7 @@ structured_chain = structured_prompt | structured_model
 branch = RunnableBranch(
     (
         lambda x : x['category'] == 'programming',
-        programming_chaing
+        programming_chain
     ),
     (
         lambda x : x['category'] == 'mathematics',
