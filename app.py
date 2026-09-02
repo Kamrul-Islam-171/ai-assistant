@@ -1,3 +1,4 @@
+import utils.session
 import streamlit as st
 
 from chatbot import get_response
